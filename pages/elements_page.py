@@ -10,11 +10,3 @@ class ElementsPage(BasePage): # Создаём класс ElementsPage, насл
         super().__init__(driver, self.base_url) # используем конструкцию супер для прокидывания данных в верхний класс
 
         self.clue_text = WebElement(driver, '#app > div > div > div > div.col-12.mt-4.col-md-6')
-
-# перенесли метод equal_url в базовый класс
-    # def equal_url(self): # метод проверки URL на соответствие
-    #     if self.get_url() == self.base_url: # условие соответствия заданного self.base_url и полученного self.get_url
-    #         return True
-    #     else:
-    #         return False
-

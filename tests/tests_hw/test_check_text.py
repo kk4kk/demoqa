@@ -17,5 +17,5 @@ def test_check_elements_text(browser):
     elements_page = ElementsPage(browser) # Создаем объект класса ElementsPage, передаём в него драйвер (browser)
     demo_qa_page.visit() # посещаем страницу
     demo_qa_page.btn_elements.click() # кликаем на кнопку элементов
-    time.sleep(3)
+    time.sleep(3) # сделал, чтобы убедиться в переходе по клику
     assert elements_page.clue_text.get_elem_text() # проверка текста в разделе элементы на соответствие
