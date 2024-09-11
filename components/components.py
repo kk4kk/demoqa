@@ -34,3 +34,7 @@ class WebElement: # Создаём самостоятельный класс Web
             return True
         else:
             return False
+
+
+    def visible(self):
+        return self.find_element().is_displayed()
