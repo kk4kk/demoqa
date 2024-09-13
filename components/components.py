@@ -16,12 +16,17 @@ class WebElement: # Создаём самостоятельный класс Web
         return self.driver.find_element(By.CSS_SELECTOR, self.locator)  # После переноса с BasePage обращаемся не просто к locator, а к self.locator
 
 
+    def find_elements(self):  # Метод поиска элементов.
+        return self.driver.find_elements(By.CSS_SELECTOR, self.locator)
+
+
     def exist(self): # после переноса сюда убираем из названия icon. Вызывает метод find_element родительского класса и передает в него локатор
         try:
             self.find_element() # приводим строку к такому виду после переноса сюда метода exist
         except NoSuchElementException: # Исключение ошибки NoSuchElementException (когда элемент не найден)
             return False # Возвращаем False, в случае её появления
         return True # иначе возвращаем True
+
 
     def get_text(self):
         if str(self.find_element().text) == '© 2013-2020 TOOLSQA.COM | ALL RIGHTS RESERVED.':  # условие соответствия заданного текста и текста элемента
@@ -38,3 +43,13 @@ class WebElement: # Создаём самостоятельный класс Web
 
     def visible(self):
         return self.find_element().is_displayed()
+
+
+    def check_count_elements(self, count: int) -> bool:
+        if len(self.find_elements()) == count:
+            return True
+        return False
+
+
+    def send_keys(self, text: str):
+        self.find_element().send_keys(text)
