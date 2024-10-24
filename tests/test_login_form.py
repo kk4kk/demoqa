@@ -40,3 +40,31 @@ def test_login_form_1(browser):
     time.sleep(2)
     form_page.input_city.send_keys(Keys.ENTER)
     time.sleep(2)
+
+
+def test_login_form_2(browser):
+    form_page = FormPage(browser)
+
+    form_page.visit()
+    form_page.select_state.scroll_to_element()
+    form_page.select_state.click()
+    form_page.btn_NCR.click()
+    time.sleep(2)
+    form_page.select_city.click()
+    form_page.btn_Noida.click()
+
+
+def test_login_form_3(browser):
+    form_page = FormPage(browser)
+
+    form_page.visit()
+    form_page.select_state.scroll_to_element()
+    form_page.select_state.click()
+    form_page.input_state.send_keys(Keys.PAGE_DOWN)
+    form_page.input_state.send_keys(Keys.ENTER)
+    time.sleep(2)
+    form_page.select_city.click()
+    form_page.input_city.send_keys(Keys.DOWN)
+    time.sleep(2)
+    form_page.input_city.send_keys(Keys.ENTER)
+    time.sleep(2)

@@ -1,4 +1,6 @@
 # БАЗОВЫЙ КЛАСС
+import logging
+
 
 class BasePage: # Создаём класс
 
@@ -29,3 +31,11 @@ class BasePage: # Создаём класс
 
     def get_title(self):
         self.driver.title()
+
+
+    def alert(self):
+        try:
+           return self.driver.switch_to.alert
+        except Exception as ex: # Обработка ошибки, если нет alert (диалогового окна)
+            logging.log(1, ex) # Обрабатываем её с помощью библиотеки logging и возвращаем False
+            return False
