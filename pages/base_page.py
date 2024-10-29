@@ -1,12 +1,13 @@
 # БАЗОВЫЙ КЛАСС
 import logging
-
+from components.components import WebElement
 
 class BasePage: # Создаём класс
 
     def __init__(self, driver, base_url): # инициализируем с атрибутом driver, а также добавляем base_url
         self.driver = driver
         self.base_url = base_url # теперь это не явный адрес, а принимаемый аргумент base_url
+        self.viewport = WebElement(driver, 'head > meta') # мета тег
 
     def visit(self): # метод посещения страницы
         return self.driver.get(self.base_url) # возвращает переход на страницу по принятому URL
@@ -30,7 +31,7 @@ class BasePage: # Создаём класс
         self.driver.refresh()
 
     def get_title(self):
-        self.driver.title()
+        return self.driver.title
 
 
     def alert(self):
