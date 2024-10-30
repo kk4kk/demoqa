@@ -7,5 +7,4 @@ class Links(BasePage):
         self.base_url = 'https://demoqa.com/links'
         super().__init__(driver, self.base_url)
 
-        self.new_tab = WebElement(driver, '#tabButton')
         self.link_home = WebElement(driver, '#simpleLink')
